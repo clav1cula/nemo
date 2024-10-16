@@ -1,0 +1,31 @@
+[project]
+name = "nemo"
+version = "0.1.0"
+description = "Add your description here"
+dependencies = ["typer>=0.12.5", "tld>=0.13", "requests>=2.32.3"]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"nemo" = "nemo:main"
+"wg-look" = "nemo.wireguard:main"
+"aria2bt" = "nemo.aria2c_bt:main"
+"test" = "nemo.test:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nemo"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
